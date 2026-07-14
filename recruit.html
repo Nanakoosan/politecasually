@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>パートナー募集 | 株式会社polite casually</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --charcoal: #3D4147;
+    --charcoal-dark: #2a2e33;
+    --charcoal-light: #4f545b;
+    --blue: #5BA3D9;
+    --blue-light: #7bb8e4;
+    --blue-pale: #d6eaf8;
+    --gray-light: #A8AAAD;
+    --gray-pale: #f5f6f7;
+    --white: #ffffff;
+    --text-dark: #1a1c1f;
+    --text-muted: #6b7280;
+    --olive: #8A8161;
+    --olive-light: #a89c76;
+    --olive-dark: #746c50;
+    --olive-pale: #ece6d6;
+    --navy: #1a3a5c;
+    --navy-light: #2c5580;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text-dark);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* NAV (same as index) */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(61,65,71,0.97);
+    backdrop-filter: blur(10px);
+    padding: 0 40px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-logo-text {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--white);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-logo-sub {
+    font-size: 10px;
+    color: var(--gray-light);
+    letter-spacing: 0.08em;
+    display: block;
+    margin-top: 1px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    color: var(--gray-light);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: rgba(138,129,97,0.7) !important;
+    color: var(--white) !important;
+    padding: 8px 20px;
+    border-radius: 0;
+    font-weight: 700;
+    border: none;
+    backdrop-filter: blur(10px) saturate(160%);
+    -webkit-backdrop-filter: blur(10px) saturate(160%);
+  }
+
+  .nav-cta:hover { background: rgba(138,129,97,0.85) !important; }
+
+  /* HERO */
+  .page-hero {
+    background: linear-gradient(135deg, var(--charcoal-dark) 0%, var(--charcoal) 60%, #3f5070 100%);
+    padding: 140px 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(91,163,217,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(91,163,217,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .page-hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .page-hero-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .page-hero-title {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+
+  .page-hero-title em {
+    font-style: normal;
+    color: var(--blue-light);
+  }
+
+  .page-hero-desc {
+    font-size: 15px;
+    color: var(--gray-light);
+    line-height: 1.9;
+    font-weight: 300;
+  }
+
+  /* BREADCRUMB */
+  .breadcrumb {
+    background: var(--gray-pale);
+    padding: 12px 40px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .breadcrumb a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+
+  /* SECTION */
+  section { padding: 80px 40px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.3;
+    margin-bottom: 40px;
+  }
+
+  /* APPEAL POINTS */
+  #appeal {
+    background: var(--white);
+  }
+
+  .appeal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .appeal-card {
+    display: flex;
+    gap: 20px;
+    padding: 28px;
+    background: var(--gray-pale);
+    border-radius: 16px;
+    border-left: 4px solid var(--blue);
+    transition: all 0.3s;
+  }
+
+  .appeal-card:hover {
+    background: var(--blue-pale);
+    transform: translateX(4px);
+  }
+
+  .appeal-num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--blue);
+    line-height: 1;
+    min-width: 44px;
+  }
+
+  .appeal-body h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+  }
+
+  .appeal-body p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* REQUIREMENTS TABLE */
+  #requirements {
+    background: var(--gray-pale);
+  }
+
+  .req-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .req-table tr {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .req-table tr:last-child { border-bottom: none; }
+
+  .req-table th {
+    width: 200px;
+    padding: 20px 24px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--charcoal);
+    background: rgba(91,163,217,0.06);
+    vertical-align: top;
+    border-right: 1px solid rgba(91,163,217,0.1);
+  }
+
+  .req-table td {
+    padding: 20px 24px;
+    font-size: 14px;
+    color: var(--charcoal-light);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* FLOW */
+  #flow {
+    background: var(--charcoal);
+  }
+
+  #flow .section-title { color: var(--white); }
+  #flow .section-label { color: var(--blue-light); }
+
+  .flow-steps {
+    display: flex;
+    gap: 0;
+    position: relative;
+  }
+
+  .flow-step {
+    flex: 1;
+    text-align: center;
+    padding: 28px 16px;
+    position: relative;
+  }
+
+  .flow-step::after {
+    content: '→';
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--blue);
+    font-size: 20px;
+    z-index: 1;
+  }
+
+  .flow-step:last-child::after { display: none; }
+
+  .flow-num {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: var(--white);
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+  }
+
+  .flow-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .flow-desc {
+    font-size: 12px;
+    color: var(--gray-light);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* CONTACT FORM */
+  #contact {
+    background: var(--white);
+  }
+
+  .form-wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .form-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.9;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .form-group {
+    margin-bottom: 28px;
+  }
+
+  .form-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+  }
+
+  .form-required {
+    background: var(--blue);
+    color: var(--white);
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  .form-optional {
+    background: var(--gray-pale);
+    color: var(--text-muted);
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 12px 16px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    color: var(--text-dark);
+    background: var(--gray-pale);
+    border: 1.5px solid transparent;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.2s;
+    appearance: none;
+    font-weight: 300;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--blue);
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(91,163,217,0.12);
+  }
+
+  textarea { resize: vertical; min-height: 140px; line-height: 1.8; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  .checkbox-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    accent-color: var(--blue);
+    cursor: pointer;
+  }
+
+  .checkbox-item span {
+    font-size: 14px;
+    color: var(--charcoal-light);
+    font-weight: 300;
+  }
+
+  .privacy-box {
+    background: var(--gray-pale);
+    border-radius: 12px;
+    padding: 20px 24px;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 32px;
+    font-weight: 300;
+  }
+
+  .privacy-box a { color: var(--blue); }
+
+  .privacy-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--charcoal);
+    margin-bottom: 36px;
+    cursor: pointer;
+  }
+
+  .privacy-check input { accent-color: var(--blue); width: 18px; height: 18px; }
+
+  .submit-btn {
+    width: 100%;
+    padding: 18px;
+    background: var(--charcoal);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s;
+    letter-spacing: 0.05em;
+  }
+
+  .submit-btn:hover {
+    background: var(--blue);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(91,163,217,0.3);
+  }
+
+  .submit-btn:active {
+    transform: scale(0.99);
+  }
+
+  .contact-alt {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--blue-pale);
+  }
+
+  .contact-alt p { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; }
+
+  .contact-alt-items {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .contact-alt-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--charcoal);
+  }
+
+  .contact-alt-item a {
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--charcoal);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-alt-item a:hover { color: var(--blue); }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal-dark);
+    padding: 60px 40px 32px;
+    color: var(--gray-light);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: flex;
+    gap: 80px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 32px;
+  }
+
+  .footer-brand {
+    flex: 1;
+    min-width: 240px;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .footer-logo-icon-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+
+  .footer-logo-letter-img {
+    height: 24px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .footer-tagline {
+    font-size: 12px;
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 240px;
+  }
+
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 160px);
+    gap: 40px;
+  }
+
+  .footer-nav-group h4 {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .footer-nav-group ul { list-style: none; }
+
+  .footer-nav-group ul li { margin-bottom: 10px; }
+
+  .footer-nav-group ul li a {
+    font-size: 13px;
+    color: var(--gray-light);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 300;
+  }
+
+  .footer-nav-group ul li a:hover { color: var(--white); }
+
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 300;
+  }
+
+  .footer-contact a { color: var(--gray-light); text-decoration: none; }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 300;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    color: var(--gray-light);
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  @media (max-width: 768px) {
+    .footer-top { flex-direction: column; gap: 40px; }
+    .footer-nav { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* TOAST */
+  .toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--charcoal);
+    color: var(--white);
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 200;
+    white-space: nowrap;
+  }
+
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    section { padding: 60px 20px; }
+    .page-hero { padding: 120px 20px 60px; }
+    .breadcrumb { padding: 12px 20px; }
+    .appeal-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .flow-steps { flex-direction: column; gap: 16px; }
+    .flow-step::after { display: none; }
+    .req-table th { width: 120px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="img/politecasually-logo-gl.png" alt="polite casually ロゴ" style="width:36px; height:36px; object-fit:contain;">
+    <img src="img/politecasually-letter-gl_sml.png" alt="polite casually" style="height:26px; width:auto; object-fit:contain;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#service">サービス</a></li>
+    <li><a href="index.html#about">代表メッセージ</a></li>
+    <li><a href="#contact" class="nav-cta">パートナーに応募</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <p class="page-hero-label">Partner Recruit</p>
+    <h1 class="page-hero-title">パートナードライバー<br><em>募集中</em></h1>
+    <p class="page-hero-desc">あなたの力が、誰かの「ありがとう」につながる。<br>有給研修あり・未経験歓迎。一緒に会社を作りましょう。</p>
+  </div>
+</div>
+
+<div class="breadcrumb">
+  <a href="index.html">ホーム</a> &rsaquo; パートナー募集
+</div>
+
+<!-- APPEAL -->
+<section id="appeal">
+  <div class="section-inner">
+    <p class="section-label">Why Choose Us</p>
+    <h2 class="section-title">polite casuallyで働く3つの魅力</h2>
+    <div class="appeal-grid">
+      <div class="appeal-card">
+        <span class="appeal-num">01</span>
+        <div class="appeal-body">
+          <h3>月額455,400円の安定案件</h3>
+          <p>毎月安定した報酬をお約束。月額455,400円（税込）の定期案件です。ここからガソリン代・車両代が差し引かれますが、収入の見通しが立てやすく、安心して働けます。</p>
+        </div>
+      </div>
+      <div class="appeal-card">
+        <span class="appeal-num">02</span>
+        <div class="appeal-body">
+          <h3>未経験でも安心。有給研修あり</h3>
+          <p>配送が初めての方も大歓迎です。実際の業務を有給でしっかりお教えしますので、「やったことがないから不安…」という方もご安心ください。丁寧にサポートします。</p>
+        </div>
+      </div>
+      <div class="appeal-card">
+        <span class="appeal-num">03</span>
+        <div class="appeal-body">
+          <h3>一緒に会社を作る仲間を募集</h3>
+          <p>代表自身も現場で動く、風通しの良い小さなチームです。ルールに縛られすぎず、一緒に考えながら成長できる環境。これからの会社を一緒に作っていきたい方を大歓迎です！</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REQUIREMENTS -->
+<section id="requirements">
+  <div class="section-inner">
+    <p class="section-label">Requirements</p>
+    <h2 class="section-title">募集要項</h2>
+    <table class="req-table">
+      <tbody>
+        <tr>
+          <th>職種</th>
+          <td>パートナードライバー（業務委託／個人事業主）</td>
+        </tr>
+        <tr>
+          <th>業務内容</th>
+          <td>企業配・宅配・集荷業務（いずれも定期の安定案件です）</td>
+        </tr>
+        <tr>
+          <th>勤務地</th>
+          <td>東京都内および近郊エリア</td>
+        </tr>
+        <tr>
+          <th>勤務時間</th>
+          <td>7:00〜21:00（シフト制ではなく丸1日稼働。その日の配達が完了した時点で業務終了・解放となります）</td>
+        </tr>
+        <tr>
+          <th>稼働日数</th>
+          <td>月24日稼働（土日祝を含む・必須）<br>※個別の土日祝休みは相談可。最低週5日以上の稼働が前提となります。</td>
+        </tr>
+        <tr>
+          <th>報酬</th>
+          <td>月額 455,400円（税込）<br>※ここからガソリン代・車両代を差し引いた額が手元に残る収入となります。</td>
+        </tr>
+        <tr>
+          <th>応募資格</th>
+          <td>
+            ・19歳〜65歳までの方<br>
+            ・普通自動車免許をお持ちの方（AT限定可／運転初心者・ペーパードライバーは不可）<br>
+            ・スマートフォンの基本操作ができる方<br>
+            ・最低限のコミュニケーション能力・マナーのある方
+          </td>
+        </tr>
+        <tr>
+          <th>車両</th>
+          <td>自己所有車両が基本です（貸し出しは要相談）<br>※今後、ガソリンカードの支給も予定しています。</td>
+        </tr>
+        <tr>
+          <th>研修制度</th>
+          <td>あり（有給研修。実際の業務を丁寧にお教えしますので、未経験の方もご安心ください）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section id="flow">
+  <div class="section-inner">
+    <p class="section-label">Application Flow</p>
+    <h2 class="section-title">応募の流れ</h2>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <p class="flow-name">Webから応募</p>
+        <p class="flow-desc">下記フォームよりお気軽にご応募ください</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <p class="flow-name">対面面接</p>
+        <p class="flow-desc">採用・不採用はその場でお伝えします。即決・即契約に備え、面接時は【印鑑】をご持参ください。</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <p class="flow-name">有給研修</p>
+        <p class="flow-desc">実際の業務を丁寧にお教えします。未経験でも安心してスタートできます。</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <p class="flow-name">稼働開始</p>
+        <p class="flow-desc">いよいよデビュー！困ったときはいつでも相談できます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label">Apply</p>
+    <h2 class="section-title">応募フォーム</h2>
+    <div class="form-wrapper">
+      <p class="form-desc">以下のフォームよりご応募ください。内容を確認のうえ、担当者よりご連絡いたします。まずはお気軽にどうぞ。</p>
+
+      <form id="contactForm" action="https://formspree.io/f/xgojqwkl" method="POST" onsubmit="handleSubmit(event)">
+        <input type="hidden" name="_subject" value="【HP】パートナードライバー応募がありました">
+        <div class="form-group">
+          <label class="form-label">
+            お名前 <span class="form-required">必須</span>
+          </label>
+          <input type="text" name="name" placeholder="例：山田 太郎" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">
+            メールアドレス <span class="form-required">必須</span>
+          </label>
+          <input type="email" name="email" placeholder="例：example@gmail.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">
+            電話番号 <span class="form-required">必須</span>
+          </label>
+          <input type="tel" name="phone" placeholder="例：09000000000（ハイフンなし）" pattern="[0-9]+" title="ハイフンなしの半角数字で入力してください" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">
+            免許の種類 <span class="form-required">必須</span>
+          </label>
+          <select name="license" required>
+            <option value="">選択してください</option>
+            <option>普通自動車免許（AT限定）</option>
+            <option>普通自動車免許（MT）</option>
+            <option>中型自動車免許以上</option>
+          </select>
+          <p style="font-size:12px; color:var(--text-muted); margin-top:6px;">※現在取得中の方はご応募いただけません。</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">
+            メッセージ <span class="form-optional">任意</span>
+          </label>
+          <textarea name="message" placeholder="ご質問や気になることがあればお気軽にどうぞ。例：配送は未経験ですが興味があります。稼働開始時期について相談したいです。"></textarea>
+        </div>
+
+        <div class="privacy-box">
+          <strong>個人情報の取り扱いについて</strong><br>
+          ご記入いただいた個人情報は、採用選考・お問い合わせへの対応のみに使用し、第三者への提供は行いません。詳しくは<a href="privacy-policy.html" target="_blank" rel="noopener">プライバシーポリシー</a>をご覧ください。
+        </div>
+
+        <label class="privacy-check">
+          <input type="checkbox" required>
+          個人情報の取り扱いに同意します
+        </label>
+
+        <button type="submit" class="submit-btn">応募する</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="img/politecasually-logo-gl.png" alt="polite casually ロゴ" class="footer-logo-icon-img">
+          <img src="img/politecasually-letter-gl_sml.png" alt="polite casually" class="footer-logo-letter-img">
+        </div>
+        <p class="footer-tagline">一つひとつの荷物に想いをのせて、確かな配送で人と未来をつなぎます。</p>
+        <div class="footer-contact" style="margin-top:20px;">
+          <span>〒176-0004 東京都練馬区小竹町2-75-3 ユアハイムB棟</span>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-nav-group">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#service">サービス</a></li>
+            <li><a href="index.html#about">代表メッセージ</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Recruit</h4>
+          <ul>
+            <li><a href="recruit.html">パートナー募集</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 株式会社polite casually</span>
+      <ul class="footer-links">
+        <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+        <li><a href="#">利用規約</a></li>
+        <li><a href="#">特定商取引法に基づく表記</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">✓ 送信が完了しました。3営業日以内にご連絡します。</div>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const toast = document.getElementById('toast');
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then((response) => {
+      if (!response.ok) throw new Error('submit failed');
+      toast.classList.add('show');
+      form.reset();
+      setTimeout(() => toast.classList.remove('show'), 5000);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }).catch(() => {
+      alert('送信に失敗しました。時間をおいて再度お試しいただくか、お電話にてお問い合わせください。');
+    });
+  }
+</script>
+</body>
+</html>

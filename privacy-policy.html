@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プライバシーポリシー | 株式会社polite casually</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --charcoal: #3D4147;
+    --charcoal-dark: #2a2e33;
+    --charcoal-light: #4f545b;
+    --blue: #5BA3D9;
+    --blue-light: #7bb8e4;
+    --blue-pale: #d6eaf8;
+    --gray-light: #A8AAAD;
+    --gray-pale: #f5f6f7;
+    --white: #ffffff;
+    --text-dark: #1a1c1f;
+    --text-muted: #6b7280;
+    --navy: #1a3a5c;
+    --navy-light: #2c5580;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text-dark);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* NAV (same as index/recruit) */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(20,42,66,0.55);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding: 0 40px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--blue-pale); }
+
+  .nav-cta {
+    background: rgba(26,58,92,0.55) !important;
+    color: var(--white) !important;
+    padding: 8px 20px;
+    border-radius: 0;
+    font-weight: 700;
+    border: 1px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(10px) saturate(160%);
+    -webkit-backdrop-filter: blur(10px) saturate(160%);
+  }
+
+  /* PAGE HERO */
+  .page-hero {
+    background: linear-gradient(135deg, var(--charcoal-dark) 0%, var(--charcoal) 60%, #3f5070 100%);
+    padding: 140px 40px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(91,163,217,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(91,163,217,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .page-hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .page-hero-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .page-hero-title {
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+  }
+
+  /* BREADCRUMB */
+  .breadcrumb {
+    background: var(--gray-pale);
+    padding: 12px 40px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .breadcrumb a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+
+  /* SECTION */
+  section { padding: 60px 40px 100px; }
+  .section-inner { max-width: 840px; margin: 0 auto; }
+
+  .policy-updated {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+  }
+
+  .policy-block { margin-bottom: 40px; }
+
+  .policy-block h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 14px;
+    padding-left: 12px;
+    border-left: 4px solid var(--blue);
+  }
+
+  .policy-block p {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--charcoal-light);
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+
+  .policy-block ul {
+    padding-left: 20px;
+    margin-bottom: 10px;
+  }
+
+  .policy-block li {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--charcoal-light);
+    font-weight: 300;
+  }
+
+  .req-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .req-table tr { border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .req-table tr:last-child { border-bottom: none; }
+
+  .req-table th {
+    width: 160px;
+    padding: 18px 22px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--charcoal);
+    background: rgba(91,163,217,0.06);
+    vertical-align: top;
+    border-right: 1px solid rgba(91,163,217,0.1);
+  }
+
+  .req-table td {
+    padding: 18px 22px;
+    font-size: 14px;
+    color: var(--charcoal-light);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* FOOTER (same as index/recruit) */
+  footer {
+    background: var(--charcoal-dark);
+    padding: 60px 40px 32px;
+    color: var(--gray-light);
+  }
+
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+  .footer-top {
+    display: flex;
+    gap: 80px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 32px;
+  }
+
+  .footer-brand { flex: 1; min-width: 240px; }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .footer-logo-icon-img { width: 32px; height: 32px; object-fit: contain; }
+  .footer-logo-letter-img { height: 24px; width: auto; object-fit: contain; }
+
+  .footer-tagline {
+    font-size: 12px;
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 240px;
+  }
+
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 160px);
+    gap: 40px;
+  }
+
+  .footer-nav-group h4 {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .footer-nav-group ul { list-style: none; }
+  .footer-nav-group ul li { margin-bottom: 10px; }
+
+  .footer-nav-group ul li a {
+    font-size: 13px;
+    color: var(--gray-light);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 300;
+  }
+
+  .footer-nav-group ul li a:hover { color: var(--white); }
+
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 300;
+  }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 300;
+  }
+
+  .footer-links { display: flex; gap: 24px; list-style: none; }
+
+  .footer-links a {
+    color: var(--gray-light);
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .page-hero { padding: 120px 20px 50px; }
+    .breadcrumb { padding: 12px 20px; }
+    section { padding: 50px 20px 70px; }
+    .req-table th { width: 120px; font-size: 12px; }
+    .footer-top { flex-direction: column; gap: 40px; }
+    .footer-nav { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="img/politecasually-logo-gl.png" alt="polite casually ロゴ" style="width:36px; height:36px; object-fit:contain;">
+    <img src="img/politecasually-letter-gl_sml.png" alt="polite casually" style="height:26px; width:auto; object-fit:contain;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#service">サービス</a></li>
+    <li><a href="index.html#about">代表メッセージ</a></li>
+    <li><a href="recruit.html" class="nav-cta">パートナーに応募</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <p class="page-hero-label">Privacy Policy</p>
+    <h1 class="page-hero-title">プライバシーポリシー</h1>
+  </div>
+</div>
+
+<div class="breadcrumb">
+  <a href="index.html">ホーム</a> &rsaquo; プライバシーポリシー
+</div>
+
+<section>
+  <div class="section-inner">
+    <p class="policy-updated">最終更新日：2026年7月12日</p>
+
+    <div class="policy-block">
+      <h2>基本方針</h2>
+      <p>株式会社polite casually（以下「当社」といいます）は、当社ウェブサイトおよび採用応募フォーム（以下「本サービス」といいます）を通じてお預かりする個人情報の重要性を認識し、個人情報の保護に関する法律その他関連法令を遵守し、適切に取り扱います。</p>
+    </div>
+
+    <div class="policy-block">
+      <h2>事業者情報</h2>
+      <table class="req-table">
+        <tr><th>名称</th><td>株式会社polite casually</td></tr>
+        <tr><th>代表者</th><td>代表取締役　堀田 和希</td></tr>
+        <tr><th>所在地</th><td>〒176-0004 東京都練馬区小竹町2-75-3 ユアハイムB棟</td></tr>
+        <tr><th>お問い合わせ</th><td><a href="mailto:politecasually@gmail.com" style="color:var(--blue); text-decoration:none;">politecasually@gmail.com</a></td></tr>
+      </table>
+    </div>
+
+    <div class="policy-block">
+      <h2>取得する個人情報</h2>
+      <p>当社は、採用応募フォームを通じて、お名前、メールアドレス、電話番号、保有する運転免許の種類、その他フォームにご記入いただいた内容（以下「個人情報」といいます）を取得します。</p>
+    </div>
+
+    <div class="policy-block">
+      <h2>個人情報の利用目的</h2>
+      <ul>
+        <li>パートナードライバーとしての採用選考に関する連絡・対応のため</li>
+        <li>ご応募内容の確認、および面談等の日程調整のため</li>
+        <li>その他お問い合わせへの回答・対応のため</li>
+      </ul>
+    </div>
+
+    <div class="policy-block">
+      <h2>第三者提供について</h2>
+      <p>当社は、法令に基づく場合を除き、ご本人の同意なく個人情報を第三者に提供することはありません。</p>
+    </div>
+
+    <div class="policy-block">
+      <h2>外部サービスの利用について</h2>
+      <p>本サービスの応募フォームは、フォーム送信代行サービス「Formspree」（Formspree, Inc.）を利用して送信内容を当社宛のメールとして受信しています。ご記入いただいた内容は、フォーム送信処理のためにFormspreeのサーバーを経由しますが、当社が定めた利用目的の範囲内でのみ利用され、Formspree社が独自に利用することはありません。</p>
+    </div>
+
+    <div class="policy-block">
+      <h2>個人情報の安全管理</h2>
+      <p>当社は、取得した個人情報の漏えい、滅失またはき損の防止その他個人情報の安全管理のために必要かつ適切な措置を講じます。</p>
+    </div>
+
+    <div class="policy-block">
+      <h2>開示・訂正・利用停止等の請求について</h2>
+      <p>ご本人からご自身の個人情報の開示、訂正、追加、削除、利用停止等のご請求があった場合は、ご本人であることを確認のうえ、合理的な期間内に対応いたします。ご請求は下記お問い合わせ窓口までご連絡ください。</p>
+    </div>
+
+    <div class="policy-block">
+      <h2>お問い合わせ窓口</h2>
+      <p>個人情報の取り扱いに関するお問い合わせは、下記までご連絡ください。</p>
+      <p>株式会社polite casually　個人情報お問い合わせ窓口<br>メール：<a href="mailto:politecasually@gmail.com" style="color:var(--blue); text-decoration:none;">politecasually@gmail.com</a></p>
+    </div>
+
+    <div class="policy-block">
+      <h2>本ポリシーの変更について</h2>
+      <p>当社は、必要に応じて本ポリシーの内容を変更することがあります。変更後のプライバシーポリシーは、本ページに掲載した時点から効力を生じるものとします。</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="img/politecasually-logo-gl.png" alt="polite casually ロゴ" class="footer-logo-icon-img">
+          <img src="img/politecasually-letter-gl_sml.png" alt="polite casually" class="footer-logo-letter-img">
+        </div>
+        <p class="footer-tagline">一つひとつの荷物に想いをのせて、確かな配送で人と未来をつなぎます。</p>
+        <div class="footer-contact" style="margin-top:20px;">
+          <span>〒176-0004 東京都練馬区小竹町2-75-3 ユアハイムB棟</span>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-nav-group">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#service">サービス</a></li>
+            <li><a href="index.html#about">代表メッセージ</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Recruit</h4>
+          <ul>
+            <li><a href="recruit.html">パートナー募集</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 株式会社polite casually</span>
+      <ul class="footer-links">
+        <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+        <li><a href="#">利用規約</a></li>
+        <li><a href="#">特定商取引法に基づく表記</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
